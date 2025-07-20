@@ -16,6 +16,11 @@ public class MessageController {
     @Autowired
     private MessageService svc;
 
+    @GetMapping("/test")
+    public String test(@RequestBody SendDto dto) {
+        return  "app work!";
+    }
+
     @PostMapping
     public Message send(@RequestBody SendDto dto) {
         return svc.send(dto.from, dto.to, dto.content);
