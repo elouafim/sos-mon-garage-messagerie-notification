@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: notification-messagerie
+
+server:
+  port: 8089
