@@ -17,7 +17,7 @@ public class MessageController {
     private MessageService svc;
 
     @GetMapping("/test")
-    public String test(@RequestBody SendDto dto) {
+    public String test() {
         return  "app work!";
     }
 
