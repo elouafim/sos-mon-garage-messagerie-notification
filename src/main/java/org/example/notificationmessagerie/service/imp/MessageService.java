@@ -26,8 +26,10 @@ public class MessageService implements IMessageService {
         m.setContent(text);
         repository.save(m);
 
-        ws.convertAndSendToUser(
-                to.toString(), "/queue/messages", m);
+        /*ws.convertAndSendToUser(
+                to.toString(), "/queue/messages", m);*/
+        ws.convertAndSend("/queue/messages", m);
+
         return m;
     }
 
