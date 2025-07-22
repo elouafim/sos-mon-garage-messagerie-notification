@@ -12,7 +12,6 @@ import java.time.Instant;
 
 @Data
 @Entity
-@Builder
 @NoArgsConstructor
 public class Message {
     @Id
