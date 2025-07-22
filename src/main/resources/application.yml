@@ -18,4 +18,4 @@ spring:
         default_schema: messagerienotification
 
 server:
-  port: ${PORT:8080}
+  port: 8089
