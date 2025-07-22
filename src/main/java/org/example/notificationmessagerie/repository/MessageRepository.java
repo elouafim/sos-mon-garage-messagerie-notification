@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findBySenderIdAndReceiverIdAndTimestampAfter(
-            Long senderId, Long receiverId, Instant since);
+            String senderId, String receiverId, Instant since);
 }

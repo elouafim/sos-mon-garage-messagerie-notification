@@ -20,9 +20,10 @@ public class MessageService implements IMessageService {
     private SimpMessagingTemplate ws;
 
     @Override
-    public Message send(Long from, Long to, String text) {
+    public Message send(String sender, String reciver, String text) {
         Message m = new Message();
-        m.setReceiverId(to);
+        m.setSenderId(sender);
+        m.setReceiverId(reciver);
         m.setContent(text);
         repository.save(m);
 
@@ -34,7 +35,7 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public List<Message> history(Long from, Long to, Instant since) {
+    public List<Message> history(String from, String to, Instant since) {
         return repository.findBySenderIdAndReceiverIdAndTimestampAfter(from, to, since);
     }
 

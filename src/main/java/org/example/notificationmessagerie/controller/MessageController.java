@@ -28,12 +28,12 @@ public class MessageController {
 
     @PostMapping
     public Message send(@RequestBody SendDto dto) {
-        return svc.send(dto.from, dto.to, dto.content);
+        return svc.send(dto.getSenderId(), dto.getReceiverId(), dto.content);
     }
 
     @GetMapping
-    public List<Message> history(@RequestParam Long with, @RequestParam String since) {
-        Long me = null;
+    public List<Message> history(@RequestParam String with, @RequestParam String since) {
+        String me = null;
         return svc.history(me, with, Instant.parse(since));
     }
 }
