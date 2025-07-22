@@ -19,8 +19,8 @@ public class Message {
     private Long id;
 
     private String token;
-    private Long senderId;
-    private Long receiverId;
+    private String senderId;
+    private String receiverId;
     private String content;
 
     private Instant timestamp = Instant.now();

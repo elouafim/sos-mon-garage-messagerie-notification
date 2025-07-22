@@ -7,4 +7,6 @@ import lombok.Data;
 public class SendDto {
     public Long from, to;
     public String content;
+    private String senderId;
+    private String receiverId;
 }
