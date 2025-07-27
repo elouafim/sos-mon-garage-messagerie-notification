@@ -3,9 +3,9 @@ spring:
     name: notification-messagerie
 
   datasource:
-    url: jdbc:postgresql://crossover.proxy.rlwy.net:15693/railway
+    url: jdbc:postgresql://switchback.proxy.rlwy.net:58642/railway
     username: postgres
-    password: YzGXwKJluiuBplxNQoadSKbMIhrsoutI
+    password: iFNynNNQMiaCKdnEVYeLhVEEMBHFXulW
     driver-class-name: org.postgresql.Driver
 
   jpa:
