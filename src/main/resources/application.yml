@@ -18,4 +18,20 @@ spring:
         default_schema: messagerienotification
 
 server:
-  port: 8089
+  port: 8082
+  servlet:
+    context-path: /V2
+  forward-headers-strategy: framework   # <-- Très important pour HTTPS derrière proxy
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  show-actuator: true
+  packages-to-scan: org.example.notificationmessagerie.Constroller
+  servers:
+    - url: https://sos-mon-garage-messagerie-notification-production-107d.up.railway.app/V2
