@@ -3,10 +3,10 @@ spring:
     name: notification-messagerie
 
   datasource:
-    url: jdbc:postgresql://crossover.proxy.rlwy.net:15693/railway
-    username: postgres
-    password: YzGXwKJluiuBplxNQoadSKbMIhrsoutI
-    driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://switchback.proxy.rlwy.net:58642/railway
+      username: postgres
+      password: iFNynNNQMiaCKdnEVYeLhVEEMBHFXulW
+      driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
@@ -34,4 +34,4 @@ springdoc:
   show-actuator: true
   packages-to-scan: org.example.notificationmessagerie.Constroller
   servers:
-    - url: https://sos-mon-garage-messagerie-notification-production-107d.up.railway.app/V2
+    - url: https://sos-mon-garage-messagerie-notification-production-5b5b.up.railway.app/V2
