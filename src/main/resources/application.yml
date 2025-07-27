@@ -32,6 +32,6 @@ springdoc:
   default-produces-media-type: application/json
   default-consumes-media-type: application/json
   show-actuator: true
-  packages-to-scan: org.example.notificationmessagerie.Constroller
+  packages-to-scan: org.example.notificationmessagerie.controller
   servers:
     - url: https://sos-mon-garage-messagerie-notification-production-5b5b.up.railway.app/V2
