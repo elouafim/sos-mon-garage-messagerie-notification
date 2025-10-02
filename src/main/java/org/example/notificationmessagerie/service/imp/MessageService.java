@@ -35,19 +35,17 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public List<Message> history(String from, String to, Instant since) {
-        return repository.findBySenderIdAndReceiverIdAndTimestampAfter(from, to, since);
+    public List<Message> history(String senderId, String receiverId) {
+        return repository.findBySenderIdAndReceiverId(senderId,receiverId);
     }
 
     @Override
-    public void markAsRead(Long messageId, Long userId) {
+    public Message markAsRead(Long messageId) {
+        Message message = repository.findById(messageId)
+                .orElseThrow(() -> new RuntimeException("Message non trouvé"));
 
-        repository.findById(messageId).ifPresent(msg -> {
-            if (msg.getReceiverId().equals(userId)) {
-                msg.setRead(true);
-                repository.save(msg);
-            }
-        });
-
+        message.setRead(true);
+        return repository.save(message);
     }
+
 }

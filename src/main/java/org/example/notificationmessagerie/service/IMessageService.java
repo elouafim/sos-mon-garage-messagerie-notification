@@ -8,7 +8,7 @@ import java.util.List;
 public interface IMessageService {
 
     public Message send(String from, String to, String text);
-    public List<Message> history(String from, String to, Instant since);
-    public void markAsRead(Long messageId, Long userId);
+    public List<Message> history(String senderId, String reciverId);
+    public Message markAsRead(Long messageId);
 
 }

@@ -5,6 +5,8 @@ import org.example.notificationmessagerie.entitie.Message;
 import org.example.notificationmessagerie.entitie.dto.SendDto;
 import org.example.notificationmessagerie.service.imp.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +34,18 @@ public class MessageController {
     }
 
     @GetMapping
-    public List<Message> history(@RequestParam String with, @RequestParam String since) {
-        String me = null;
-        return svc.history(me, with, Instant.parse(since));
+    public List<Message> history(@RequestParam String senderId, @RequestParam String receiverId) {
+        return svc.history(senderId, receiverId);
     }
+
+    @PutMapping("/mark-as-read")
+    public ResponseEntity<?> markAsRead(@RequestParam Long idMessage) {
+        try {
+            return ResponseEntity.ok(svc.markAsRead(idMessage));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
 }
 
