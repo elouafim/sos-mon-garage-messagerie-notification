@@ -38,6 +38,11 @@ public class MessageController {
         return svc.history(senderId, receiverId);
     }
 
+    @GetMapping("/all")
+    public List<Message> getAllMessage(@RequestParam String senderId, @RequestParam String receiverId) {
+        return svc.getAllMessage(senderId, receiverId);
+    }
+
     @PutMapping("/mark-as-read")
     public ResponseEntity<?> markAsRead(@RequestParam Long idMessage) {
         try {

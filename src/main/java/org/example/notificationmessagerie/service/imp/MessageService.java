@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -37,6 +36,11 @@ public class MessageService implements IMessageService {
     @Override
     public List<Message> history(String senderId, String receiverId) {
         return repository.findBySenderIdAndReceiverId(senderId,receiverId);
+    }
+
+    @Override
+    public List<Message> getAllMessage(String senderId, String receiverId) {
+        return repository.findBySenderIdAndReceiverId2(senderId,receiverId);
     }
 
     @Override
