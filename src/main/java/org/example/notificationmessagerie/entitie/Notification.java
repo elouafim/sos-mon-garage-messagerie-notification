@@ -15,8 +15,6 @@ public class Notification {
     private Long id;
 
     private Long userId;
-    @Enumerated(EnumType.STRING)
-    private TypeNotification type;
     private String payload;
 
     private Instant timestamp = Instant.now();
