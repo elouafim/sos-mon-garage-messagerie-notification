@@ -21,4 +21,12 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findBySenderIdAndReceiverId2(
             @Param("senderId") String senderId,
             @Param("receiverId") String receiverId);
+
+
+    @Query("SELECT m FROM Message m WHERE " +
+            "(m.senderId = :senderId AND m.receiverId = :receiverId) " +
+            "OR (m.senderId = :receiverId AND m.receiverId = :senderId) " +
+            "ORDER BY m.timestamp ASC")
+    List<Message> findConversation(@Param("senderId") String senderId,
+                                   @Param("receiverId") String receiverId);
 }

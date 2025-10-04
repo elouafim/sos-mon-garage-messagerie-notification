@@ -40,7 +40,7 @@ public class MessageService implements IMessageService {
 
     @Override
     public List<Message> getAllMessage(String senderId, String receiverId) {
-        return repository.findBySenderIdAndReceiverId2(senderId,receiverId);
+        return repository.findConversation(senderId,receiverId);
     }
 
     @Override
